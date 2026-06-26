@@ -48,7 +48,8 @@ input_data = pd.DataFrame({
 })
 
 # OneHot Encode 'Geography'
-geo_encoded = onehot_encoder_geo.transform([[geography]]).toarray()
+geo_df = pd.DataFrame({"Geography": [geography]})
+geo_encoded = onehot_encoder_geo.transform(geo_df).toarray()
 geo_encoded_df = pd.DataFrame(geo_encoded, columns=onehot_encoder_geo.get_feature_names_out(['Geography']))
 
 ## Combine the one_hot_encoded_columns 
